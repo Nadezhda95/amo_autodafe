@@ -49,6 +49,7 @@ async def create_note(call: types.CallbackQuery):
 @dp.message_handler(is_reply=True)
 async def post_note(msg: types.Message):
     client.post_note(lead_id=msg.reply_to_message.text.split('ид ')[1], note=msg.text)
+    # client.create_entity_note('leads', msg.text, msg.reply_to_message.text.split('ид ')[1])
     await msg.answer('Комментарий публикован')
 
 
